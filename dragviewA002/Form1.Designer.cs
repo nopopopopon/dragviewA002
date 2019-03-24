@@ -44,6 +44,7 @@
             this.pictureBoxSaike1.Location = new System.Drawing.Point(13, 28);
             this.pictureBoxSaike1.Name = "pictureBoxSaike1";
             this.pictureBoxSaike1.Size = new System.Drawing.Size(486, 410);
+            this.pictureBoxSaike1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSaike1.TabIndex = 0;
             this.pictureBoxSaike1.TabStop = false;
             this.pictureBoxSaike1.Click += new System.EventHandler(this.pictureBoxSaike1_Click);
@@ -60,6 +61,7 @@
             this.listBoxSaike1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBoxSaike1.Size = new System.Drawing.Size(267, 400);
             this.listBoxSaike1.TabIndex = 1;
+            this.listBoxSaike1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ListBoxSaike1_MouseUp);
             // 
             // button1A
             // 

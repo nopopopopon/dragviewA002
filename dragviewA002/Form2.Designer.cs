@@ -35,25 +35,27 @@
             // pictureBox2A
             // 
             this.pictureBox2A.Location = new System.Drawing.Point(1, -1);
+            this.pictureBox2A.MaximumSize = new System.Drawing.Size(1100, 790);
             this.pictureBox2A.Name = "pictureBox2A";
             this.pictureBox2A.Size = new System.Drawing.Size(767, 628);
-            this.pictureBox2A.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2A.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2A.TabIndex = 0;
             this.pictureBox2A.TabStop = false;
             // 
             // Form2
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.AutoScroll = true;
-            this.AutoSize = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 659);
             this.Controls.Add(this.pictureBox2A);
+            this.MaximumSize = new System.Drawing.Size(1200, 800);
             this.Name = "Form2";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
+            this.ResizeEnd += new System.EventHandler(this.Form2_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2A)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

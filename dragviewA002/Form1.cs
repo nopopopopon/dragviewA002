@@ -89,10 +89,56 @@ namespace dragviewA002
                 Form2 f = new Form2();
                 //Form2を表示する
                 //ここではモードレスフォームとして表示する
+
+                // リサイズする属性をセット
+                // f.FormBorderStyle = FormBorderStyle.Sizable;  // これは効果なしだった
+                // 解決法:Form2のSizeGripStyleを強制的にShowにする
                 
                 f.Show();
                 // 先にForm2のPictureBoxをpublic設定にしておかないと下で呼べない
                 f.pictureBox2A.ImageLocation = listBoxSaike1.SelectedItems[i].ToString();
+
+                //ディスプレイの高さ
+                int h = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+                //ディスプレイの幅
+                int w = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+
+                //画像データを読み込む
+                Bitmap img = new Bitmap(Image.FromFile(listBoxSaike1.SelectedItems[i].ToString()));
+                
+                //画像サイズを取得
+                int width = img.Width;
+                int height = img.Height;
+
+                // 表示するウィンドウサイズ
+                f.Size = new Size(width,height) ;  // 初期値は画像サイズとする。Size構造体定義して代入
+                f.pictureBox2A.Size = new Size(width, height);
+
+                if (width > w) {
+                    //　イメージがディスプレイより大きいならディスプレイ大でカット
+                    f.Width = w;
+                    f.pictureBox2A.Width = w;
+                } else
+                {
+                    f.Width = width;
+                }
+                if (height > h)
+                {
+                    f.Height = h;
+                    f.pictureBox2A.Height = h;
+                }
+                else
+                {
+                    f.Height = height;
+                }
+
+                //結果表示
+                string str1 = "画面最大サイズ: "+ w.ToString() +" × " + h.ToString();
+                string str2 = "画像サイズ: " + width.ToString() + " × " + height.ToString();
+                string str3 = "Formサイズ: " + f.Width.ToString() + " × " + f.Height.ToString();
+                MessageBox.Show(str1 + str2+str3);
+
+                f.Show();
 
 
             }
@@ -153,5 +199,35 @@ namespace dragviewA002
             }
 
         }
+
+        private void ListBoxSaike1_click(object sender, EventArgs e)
+        {
+            // listBoxのプロパティのイベントに登録してリンクしないと反応しない
+
+        }
+
+
+        // マウスからクリック項目を拾うって左にサンプル画像を出す
+        //　画像伸縮はPictureboxのプロパティでZoom選択で自動対応
+        void ListBoxSaike1_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 左クリックされた？
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                // マウス座標から選択すべきアイテムのインデックスを取得
+                int index = listBoxSaike1.IndexFromPoint(e.Location);
+
+                // インデックスが取得できたら
+                if (index >= 0)
+                {
+                    // string str1 = listBoxSaike1.Items[index].ToString();
+                    // MessageBox.Show("File選択:" + str1);
+
+                    pictureBoxSaike1.ImageLocation = listBoxSaike1.Items[index].ToString();  //画像名セット
+                    pictureBoxSaike1.Show();
+                }
+            }
+        }
+
     }
 }
