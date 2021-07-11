@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace dragviewA002
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form ,I_RemoteObject
     {
         public Form1()
         {
@@ -229,5 +229,80 @@ namespace dragviewA002
             }
         }
 
+        public void StartupNextInstance(string str1)
+        {
+
+            // メイン・ウィンドウが最小化されていれば元に戻す
+            /*
+             if (IsIconic(this.Handle))
+             {
+                 ShowWindowAsync(this.Handle, SW_RESTORE);
+             }
+
+             // メイン・ウィンドウを最前面に表示する
+             SetForegroundWindow(this.Handle);
+            */
+
+            //string[] args = (string[])parameters[0];
+
+            MessageBox.Show("既に起動しています。引数の中身：" + str1);
+
+            Form2 f = new Form2();
+            f.Show();
+
+            if (System.IO.File.Exists(str1))
+            {
+                
+                listBoxSaike1.Items.Add(str1);
+                
+
+                try
+                {
+                    MessageBox.Show("Form2にイメージをセットしています>引数の中身：" + str1);
+
+                    // 追加2021/6/15
+                    //pictureBoxSaike1.WaitOnLoad = true;  // イメージロードまで待つ これがないとなぜかフリーズする
+                                                         //f.pictureBox3.ImageLocation = @"z:\tmp2\QVB.jpg";
+                    f.pictureBox2A.ImageLocation = str1;
+                    //pictureBoxSaike1.ImageLocation = str1;
+                    //f.Show();
+                    //Application.DoEvents();
+                }
+                catch
+                {
+                    MessageBox.Show(String.Format("例外:", str1), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(String.Format("ファイルがない:", str1), "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //f.Show();
+            Application.Run(f);  // 別プロセスでフォームを開くにすると　応答なしを防止できる
+        }
+
+
+
     }
+    /*
+    public class SAIKECOMMON
+    {
+        public static Size SAIKEsize(object sender)
+            // 静的宣言
+        {
+            Size i = new Size();
+            i = (Size)sender;
+            i.Height = 123;
+            i.Width = 987;
+            return i;
+
+            //  利用例
+            //    Size i = new Size(45,78);
+            //    i = SAIKECOMMON.SAIKEsize(i);
+            
+        }
+    }
+    */
+
+
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
+
 namespace dragviewA002
 {
     public partial class Form2 : Form
@@ -54,6 +56,9 @@ namespace dragviewA002
             
             ff.pictureBox2A.Show();
             ff.Show();
+
+            Size i = new Size(45,78);
+            i = SAIKECOMMON.SAIKEsize(i);
 
             //結果表示
             string str2 = "Form2サイズ: " + width.ToString() + " × " + height.ToString();
