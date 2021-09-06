@@ -285,8 +285,14 @@ namespace dragviewA002
         private void button4_Click_1(object sender, EventArgs e)
         {
             // 選択から削除ボタンが押された
+            int selNo = listBoxSaike1.SelectedIndex;
+            listBoxSaike1.Items.RemoveAt(selNo);
+        }
 
-            // 偉大になるために どうかな?
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // 選択解除ボタンが押された
+            listBoxSaike1.ClearSelected();  // 選択しているのを解除
         }
     }
     /*
