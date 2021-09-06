@@ -281,8 +281,13 @@ namespace dragviewA002
             Application.Run(f);  // 別プロセスでフォームを開くにすると　応答なしを防止できる
         }
 
+      
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            // 選択から削除ボタンが押された
 
 
+        }
     }
     /*
     public class SAIKECOMMON

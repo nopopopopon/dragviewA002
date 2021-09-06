@@ -81,7 +81,7 @@ namespace dragviewA002
                     }
                 }
 
-                MessageBox.Show("ムネンアトヲタノム" );
+                MessageBox.Show("同一の2つ目のプロセスなので自爆す" );
                 Application.Exit(); // 2つ目なので自分は終わる
 
             }

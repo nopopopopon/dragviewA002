@@ -34,6 +34,7 @@
             this.button1A = new System.Windows.Forms.Button();
             this.buttonREAD = new System.Windows.Forms.Button();
             this.buttonWRITE = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaike1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,12 +94,24 @@
             this.buttonWRITE.UseVisualStyleBackColor = true;
             this.buttonWRITE.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("MS UI Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button4.Location = new System.Drawing.Point(521, 476);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(97, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "リストから選択削除";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 494);
+            this.ClientSize = new System.Drawing.Size(800, 510);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.buttonWRITE);
             this.Controls.Add(this.buttonREAD);
             this.Controls.Add(this.button1A);
@@ -118,6 +131,7 @@
         private System.Windows.Forms.Button button1A;
         private System.Windows.Forms.Button buttonREAD;
         private System.Windows.Forms.Button buttonWRITE;
+        private System.Windows.Forms.Button button4;
     }
 }
 
