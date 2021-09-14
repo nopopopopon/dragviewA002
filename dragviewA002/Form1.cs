@@ -97,7 +97,7 @@ namespace dragviewA002
                 f.Show();
                 // 先にForm2のPictureBoxをpublic設定にしておかないと下で呼べない
                 f.pictureBox2A.ImageLocation = listBoxSaike1.SelectedItems[i].ToString();
-                f.Text = listBoxSaike1.SelectedItems[i].ToString();
+                f.Text = listBoxSaike1.SelectedItems[i].ToString();  // タイトルバーにファイル名をセット
 
                 //ディスプレイの高さ
                 int h = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
